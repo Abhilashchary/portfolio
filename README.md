@@ -6,9 +6,6 @@
 
 > A modern, responsive portfolio website showcasing my journey as a Software Engineer, Competitive Programmer, and Full-Stack Developer.
 
-## 📸 Preview
-
-![Portfolio Preview](assets/preview.png)
 
 ## ✨ Features
 
