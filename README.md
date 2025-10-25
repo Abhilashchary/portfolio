@@ -1,6 +1,6 @@
 # 🚀 Abhilash Chary Vadla - Portfolio Website
 
-[![Live Demo](https://img.shields.io/badge/Demo-Live-brightgreen)](https://abhilashchary.github.io)
+[![Live Demo](https://img.shields.io/badge/Demo-Live-brightgreen)]([https://abhilashchary.github.io](https://abhilashchary.github.io/portfolio/))
 [![GitHub Pages](https://img.shields.io/badge/Hosted%20on-GitHub%20Pages-blue)](https://pages.github.com/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
