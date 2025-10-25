@@ -1,0 +1,1909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhilash Chary Vadla - Software Engineer | Code Resol</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --color-bg: #0a0a0f;
+            --color-bg-secondary: #12121c;
+            --color-border: #2a2a3a;
+            --color-text-primary: #f0f0f5;
+            --color-text-secondary: #a0a0b0;
+            --color-primary: #00e0b0;
+            --color-primary-hover: #00ffc8;
+            --color-shadow: rgba(0, 224, 176, 0.2);
+            --font-primary: 'Inter', sans-serif;
+            --container-width: 1140px;
+            --border-radius: 8px;
+            --transition-speed: 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-bg);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--color-text-primary);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 1.5rem; }
+
+        p {
+            color: var(--color-text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: var(--transition-speed);
+        }
+
+        a:hover {
+            color: var(--color-primary-hover);
+        }
+
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--color-text-primary);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-subtitle {
+            display: block;
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--color-primary);
+            margin-bottom: 3rem;
+            font-weight: 600;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transition-speed);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: var(--color-bg);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-primary-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px var(--color-shadow);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+            margin-left: 10px;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-primary);
+            color: var(--color-bg);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px var(--color-shadow);
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+            transition: var(--transition-speed);
+            padding: 15px 0;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo-image {
+            height: 35px;
+            width: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: var(--color-text-secondary);
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-primary);
+            transition: width var(--transition-speed);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--color-text-primary);
+        }
+
+        .nav-contact-btn {
+            background-color: var(--color-primary);
+            color: var(--color-bg);
+            padding: 8px 18px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--color-text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: left;
+            padding: 100px 0;
+            background-color: var(--color-bg);
+        }
+
+        .hero-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-image-container {
+            flex: 0 0 350px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--color-primary);
+            box-shadow: 0 0 40px var(--color-shadow);
+            transition: transform var(--transition-speed);
+        }
+
+        .hero-image:hover {
+            transform: scale(1.05);
+        }
+
+        .hero-intro {
+            font-size: 1.2rem;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-name {
+            font-size: 3.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero-subtitle {
+            font-size: 2.2rem;
+            min-height: 50px;
+        }
+
+        #typing-text::after {
+            content: '|';
+            animation: blink 0.7s infinite;
+            color: var(--color-primary);
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .hero-summary {
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            max-width: 600px;
+        }
+
+        .hero-summary strong {
+            color: var(--color-primary);
+        }
+
+        .hero-socials {
+            margin: 2rem 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .hero-socials a {
+            font-size: 1.8rem;
+            color: var(--color-text-secondary);
+            transition: all var(--transition-speed);
+        }
+
+        .hero-socials a:hover {
+            color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+
+        .hero-cta {
+            margin-top: 2.5rem;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Highlights Section */
+        .highlights-section {
+            padding: 80px 0;
+            background-color: var(--color-bg-secondary);
+            border-top: 1px solid var(--color-border);
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .highlight-card {
+            background-color: var(--color-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--color-border);
+            text-align: center;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .highlight-icon {
+            font-size: 3rem;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            padding: 80px 0;
+            background-color: var(--color-bg-secondary);
+            border-top: 1px solid var(--color-border);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+
+        .skill-category-card {
+            background-color: var(--color-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--color-border);
+            text-align: center;
+            transition: transform var(--transition-speed);
+        }
+
+        .skill-category-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .skill-tags span {
+            background-color: rgba(0, 224, 176, 0.15);
+            color: var(--color-primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--color-bg-secondary);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--color-border);
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .contact-list li i {
+            color: var(--color-primary);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            width: 25px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--color-bg-secondary);
+            color: var(--color-text-secondary);
+            padding: 40px 0;
+            border-top: 1px solid var(--color-border);
+            text-align: center;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+            justify-content: center;
+        }
+
+        .footer-socials a {
+            font-size: 1.5rem;
+            color: var(--color-text-secondary);
+            transition: all var(--transition-speed);
+        }
+
+        .footer-socials a:hover {
+            color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+
+        /* Experience Timeline */
+        .experience-section {
+            padding: 80px 0;
+            background-color: var(--color-bg);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--color-primary), transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            padding: 25px;
+            background-color: var(--color-bg-secondary);
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius);
+            position: relative;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 224, 176, 0.2);
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background-color: var(--color-primary);
+            border: 3px solid var(--color-bg);
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .timeline-date {
+            color: var(--color-primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content h4 {
+            color: var(--color-text-secondary);
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .timeline-content p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Contact Form Enhancements */
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--color-bg-secondary);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--color-border);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--color-text-primary);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius);
+            color: var(--color-text-primary);
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            transition: border-color var(--transition-speed);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--color-primary);
+            color: var(--color-bg);
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition-speed);
+        }
+
+        .form-submit-btn:hover {
+            background-color: var(--color-primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px var(--color-shadow);
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 80px 0;
+            background-color: var(--color-bg);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background-color: var(--color-bg-secondary);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--color-border);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 224, 176, 0.2);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .project-icon {
+            font-size: 1.5rem;
+            color: var(--color-primary);
+        }
+
+        .project-card h3 {
+            font-size: 1.3rem;
+            margin: 0;
+        }
+
+        .project-description {
+            color: var(--color-text-secondary);
+            margin: 15px 0;
+            flex-grow: 1;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .tech-tag {
+            background-color: rgba(0, 224, 176, 0.15);
+            color: var(--color-primary);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .project-link {
+            color: var(--color-primary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .loading-spinner {
+            text-align: center;
+            color: var(--color-text-secondary);
+            padding: 40px;
+            font-size: 1.1rem;
+        }
+
+        /* CP Stats Section */
+        .cp-section {
+            padding: 80px 0;
+            background-color: var(--color-bg-secondary);
+            border-top: 1px solid var(--color-border);
+        }
+
+        .cp-platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 3rem 0;
+        }
+
+        .cp-platform-card {
+            background-color: var(--color-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--color-border);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .cp-platform-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .platform-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .platform-header i {
+            font-size: 2rem;
+            color: var(--color-primary);
+        }
+
+        .platform-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .platform-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .stat-label {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .stat-value {
+            color: var(--color-primary);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .platform-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: var(--color-primary);
+            color: var(--color-bg);
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transition-speed);
+        }
+
+        .platform-link:hover {
+            background-color: var(--color-primary-hover);
+            transform: translateX(5px);
+        }
+
+        .cp-charts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .chart-container {
+            background-color: var(--color-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--color-border);
+        }
+
+        .chart-container h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--color-primary);
+        }
+
+        .chart-container canvas {
+            max-height: 300px;
+        }
+
+        /* LinkedIn Section Styles */
+        .linkedin-section {
+            padding: 80px 0;
+            background-color: var(--color-bg-secondary);
+            border-top: 1px solid var(--color-border);
+        }
+
+        .linkedin-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 3rem;
+        }
+
+        .linkedin-badge-wrapper {
+            display: flex;
+            justify-content: center;
+            padding: 30px;
+            background-color: var(--color-bg);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--color-border);
+        }
+
+        .linkedin-quote-card {
+            background: linear-gradient(135deg, rgba(0, 224, 176, 0.1), rgba(0, 224, 176, 0.05));
+            padding: 40px;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--color-primary);
+            position: relative;
+            text-align: center;
+        }
+
+        .quote-icon {
+            font-size: 3rem;
+            color: var(--color-primary);
+            opacity: 0.3;
+            margin-bottom: 20px;
+        }
+
+        .linkedin-quote-card blockquote {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--color-text-primary);
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+
+        .quote-author {
+            color: var(--color-primary);
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        .linkedin-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .linkedin-stat-card {
+            background-color: var(--color-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--color-border);
+            text-align: center;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .linkedin-stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 224, 176, 0.2);
+        }
+
+        .linkedin-stat-card i {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+
+        .linkedin-stat-card h3 {
+            font-size: 1.8rem;
+            margin: 10px 0;
+        }
+
+        .linkedin-stat-card p {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .linkedin-posts-section {
+            background-color: var(--color-bg);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--color-border);
+        }
+
+        .posts-title {
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .posts-subtitle {
+            text-align: center;
+            color: var(--color-text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .linkedin-post-embed {
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            border: 1px solid var(--color-border);
+        }
+
+        .linkedin-post-embed iframe {
+            display: block;
+            width: 100%;
+        }
+
+        .linkedin-posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .linkedin-post-card {
+            background-color: var(--color-bg);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--color-border);
+            text-decoration: none;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .linkedin-post-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 224, 176, 0.25);
+            border-color: var(--color-primary);
+        }
+
+        .post-thumbnail {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(135deg, rgba(0, 224, 176, 0.2), rgba(0, 224, 176, 0.05));
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .post-thumbnail i {
+            font-size: 3rem;
+            color: var(--color-primary);
+        }
+
+        .linkedin-post-card h4 {
+            color: var(--color-text-primary);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .linkedin-post-card p {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .view-post-btn {
+            color: var(--color-primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .manual-posts-note {
+            background-color: rgba(0, 224, 176, 0.1);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .manual-posts-note i {
+            color: var(--color-primary);
+            font-size: 1.5rem;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .manual-posts-note p {
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .linkedin-cta-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 18px 32px;
+            background-color: var(--color-primary);
+            color: var(--color-bg);
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition-speed);
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .linkedin-cta-btn:hover {
+            background-color: var(--color-primary-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px var(--color-shadow);
+        }
+
+        .connection-badge {
+            background-color: rgba(10, 10, 15, 0.5);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .hero-name { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1.5rem; }
+            .hero-container { flex-direction: column-reverse; }
+            .hero-image-container { flex: 0 0 250px; }
+            .hero-image { width: 250px; height: 250px; }
+            .nav-menu { 
+                display: none;
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav-toggle { display: block; }
+            .cp-charts {
+                grid-template-columns: 1fr;
+            }
+            .chart-container canvas {
+                max-height: 250px;
+            }
+            .timeline::before {
+                left: 30px;
+            }
+            .timeline-item {
+                flex-direction: row !important;
+            }
+            .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 60px;
+            }
+            .timeline-marker {
+                left: 30px;
+            }
+            .linkedin-post-embed {
+                max-width: 100%;
+            }
+            .linkedin-quote-card blockquote {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#hero" class="nav-brand">
+                <img src="assets/logo.jpg" alt="Code Resol Logo" class="nav-logo-image">
+                Abhilash Chary Vadla
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#cp-stats" class="nav-link">CP Stats</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#linkedin" class="nav-link">LinkedIn</a></li>
+                <li><a href="#contact" class="nav-link nav-contact-btn">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero">
+        <div class="container hero-container">
+            <div class="hero-text">
+                <p class="hero-intro">Hello, I'm</p>
+                <h1 class="hero-name">Abhilash Chary Vadla</h1>
+                <h2 class="hero-subtitle">
+                    <span id="typing-text"></span>
+                </h2>
+                <p class="hero-summary">
+                    Founder of <strong>Code Resol</strong>. Building enterprise-grade software and AI-driven solutions from Hyderabad, India.
+                </p>
+                <div class="hero-socials">
+                    <a href="https://www.linkedin.com/in/coderesol/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Abhilashchary" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://leetcode.com/u/coderesol/" target="_blank" aria-label="LeetCode"><i class="fas fa-code"></i></a>
+                    <a href="https://www.codechef.com/users/abhilashchary" target="_blank" aria-label="CodeChef"><i class="fas fa-utensils"></i></a>
+                    <a href="https://codeforces.com/profile/vadlaabhilashchary3333" target="_blank" aria-label="Codeforces"><i class="fas fa-terminal"></i></a>
+                    <a href="https://www.instagram.com/abhi___chary/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="assets/resume.pdf" download="Abhilash_Chary_Resume.pdf" class="btn btn-secondary"><i class="fas fa-download"></i> Download Resume</a>
+                </div>
+            </div>
+            <div class="hero-image-container">
+                <img src="assets/profile.jpg" alt="Abhilash Chary Vadla" class="hero-image">
+            </div>
+        </div>
+    </section>
+
+    <section id="highlights" class="highlights-section">
+        <div class="container">
+            <h2 class="section-title">Top Achievements</h2>
+            <span class="section-subtitle">Career Highlights & Recognition</span>
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <div class="highlight-icon"><i class="fas fa-trophy"></i></div>
+                    <h3>LeetCode Top 11.71%</h3>
+                    <p>Rating 1718, 128 problems solved (78 Easy, 45 Medium, 5 Hard), 13 contests attended.</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon"><i class="fas fa-briefcase"></i></div>
+                    <h3>Enterprise ERP Developer</h3>
+                    <p>Independently designed & delivered the complete Virat ERP system using Supabase & Netlify.</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Founder, Karmik Pro</h3>
+                    <p>Hyperlocal gig platform connecting flexible workers to MSMEs & households.</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon"><i class="fas fa-handshake"></i></div>
+                    <h3>Capgemini Ambassador</h3>
+                    <p>Representing CMRTC in MNC initiatives, workshops, & tech sessions.</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon"><i class="fas fa-award"></i></div>
+                    <h3>Smart Coder Gold</h3>
+                    <p>Global Rank 2041, Score 42,965 on Smart Interviews with Gold Certification.</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon"><i class="fas fa-star"></i></div>
+                    <h3>Best Project Award</h3>
+                    <p>TIP Expo 2025 winner at CMRTC, recognized for innovation and technical excellence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <span class="section-subtitle">My Professional Summary</span>
+            <p class="about-text">
+                I am an aspiring Software Engineer from Hyderabad with strong foundations in Data Structures & Algorithms, full-stack development, and AI-driven development. I have a proven ability to independently deliver enterprise-grade software (like Virat ERP) by applying Software Engineering principles, AI-assisted workflows, and effective client communication.
+                <br><br>
+                As a Capgemini Student Ambassador and Placement Coordinator at CMR Technical Campus, I've honed my leadership and communication skills, complemented by achievements in hackathons, project expos, and entrepreneurial initiatives like the Karmik Pro Gig Platform. I am the founder of Code Resol, a tech community dedicated to guiding 50+ peers in coding contests and web/AI projects.
+                <br><br>
+                With a B.Tech SGPA of 9+ and competitive programming excellence (LeetCode Top 11.71%, Smart Interviews Rank 2041), I bring both academic rigor and practical problem-solving skills to every project.
+            </p>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title">Recent GitHub Projects</h2>
+            <span class="section-subtitle">Latest repositories from my GitHub</span>
+            <div id="github-projects" class="projects-grid">
+                <div class="loading-spinner">Loading projects...</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cp-stats" class="cp-section">
+        <div class="container">
+            <h2 class="section-title">Competitive Programming</h2>
+            <span class="section-subtitle">Live Stats & Analytics</span>
+            
+            <div class="cp-platforms-grid">
+                <div class="cp-platform-card leetcode-card">
+                    <div class="platform-header">
+                        <i class="fas fa-code"></i>
+                        <h3>LeetCode</h3>
+                    </div>
+                    <div class="platform-stats" id="leetcode-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Rating</span>
+                            <span class="stat-value">1718</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Problems Solved</span>
+                            <span class="stat-value">128</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Global Rank</span>
+                            <span class="stat-value">Top 11.71%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Contests</span>
+                            <span class="stat-value">13</span>
+                        </div>
+                    </div>
+                    <a href="https://leetcode.com/u/coderesol/" target="_blank" class="platform-link">View Profile <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="cp-platform-card codechef-card">
+                    <div class="platform-header">
+                        <i class="fas fa-utensils"></i>
+                        <h3>CodeChef</h3>
+                    </div>
+                    <div class="platform-stats" id="codechef-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Highest Rating</span>
+                            <span class="stat-value">1476</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Problems Solved</span>
+                            <span class="stat-value">50</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Division</span>
+                            <span class="stat-value">Div 3</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Contests</span>
+                            <span class="stat-value">25</span>
+                        </div>
+                    </div>
+                    <a href="https://www.codechef.com/users/abhilashchary" target="_blank" class="platform-link">View Profile <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="cp-platform-card codeforces-card">
+                    <div class="platform-header">
+                        <i class="fas fa-terminal"></i>
+                        <h3>Codeforces</h3>
+                    </div>
+                    <div class="platform-stats" id="codeforces-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Current Rating</span>
+                            <span class="stat-value">926</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Highest Rating</span>
+                            <span class="stat-value">966</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Contests</span>
+                            <span class="stat-value">11</span>
+                        </div>
+                    </div>
+                    <a href="https://codeforces.com/profile/vadlaabhilashchary3333" target="_blank" class="platform-link">View Profile <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="cp-platform-card smartinterviews-card">
+                    <div class="platform-header">
+                        <i class="fas fa-award"></i>
+                        <h3>Smart Interviews</h3>
+                    </div>
+                    <div class="platform-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Global Rank</span>
+                            <span class="stat-value">2041</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Score</span>
+                            <span class="stat-value">42,965</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Certification</span>
+                            <span class="stat-value">Gold</span>
+                        </div>
+                    </div>
+                    <a href="https://smartinterviews.in/profile/237r1a05y6" target="_blank" class="platform-link">View Profile <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+
+            <div class="cp-charts">
+                <div class="chart-container">
+                    <h3>Problems Solved Distribution</h3>
+                    <canvas id="problemsChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Platform Rating Comparison</h3>
+                    <canvas id="platformChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Contest Performance Timeline</h3>
+                    <canvas id="contestChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience-section">
+        <div class="container">
+            <h2 class="section-title">Professional Journey</h2>
+            <span class="section-subtitle">Experience Timeline</span>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025 - Present</div>
+                        <h3>Full-Stack Developer</h3>
+                        <h4>Virat ERP (Independent Project)</h4>
+                        <p>Designed & developed an Enterprise ERP system independently using Supabase, Netlify, Bolt. Managed inventory, HR, billing, and reporting modules with AI-assisted tools and client communication.</p>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025</div>
+                        <h3>Founder</h3>
+                        <h4>Karmik Pro Gig Platform</h4>
+                        <p>Hyperlocal gig platform connecting flexible workers to MSMEs & households. Drafted proposals, block diagrams, financial planning, and real-time job workflows. Participated in MSME Hackathon 5.0.</p>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024 - 2025</div>
+                        <h3>Capgemini Student Ambassador</h3>
+                        <h4>CMR Technical Campus</h4>
+                        <p>Represented CMRTC in MNC initiatives, workshops, and tech sessions. Coordinated student placements and managed industry engagement.</p>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Oct 2023 - Jan 2024</div>
+                        <h3>Managing Member & Intern</h3>
+                        <h4>Winzera, Hyderabad</h4>
+                        <p>Prepared technical reports & presentations for senior management. Contributed to project planning and execution.</p>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023 - Present</div>
+                        <h3>Team Leader & Founder</h3>
+                        <h4>Code Resol (Tech Community)</h4>
+                        <p>Guided 50+ peers in coding contests and web/AI projects. Led coding community & innovation projects, winner of 5+ inter-college coding competitions.</p>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023 - 2027</div>
+                        <h3>B.Tech, Computer Science & Engineering</h3>
+                        <h4>CMR Technical Campus, Hyderabad</h4>
+                        <p>SGPA: 9+. Active in hackathons, project expos, and technical workshops. Best Project Award winner at TIP Expo 2025.</p>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2 class="section-title">Core Technical Skills</h2>
+            <span class="section-subtitle">My expertise</span>
+            
+            <div class="skills-grid">
+                <div class="skill-category-card">
+                    <i class="fas fa-code skill-icon"></i>
+                    <h3>Languages & DSA</h3>
+                    <div class="skill-tags">
+                        <span>C++</span>
+                        <span>Java</span>
+                        <span>Python</span>
+                        <span>C</span>
+                        <span>Data Structures</span>
+                        <span>Algorithms</span>
+                        <span>Dynamic Programming</span>
+                        <span>Divide & Conquer</span>
+                    </div>
+                </div>
+                <div class="skill-category-card">
+                    <i class="fas fa-layer-group skill-icon"></i>
+                    <h3>Full-Stack Development</h3>
+                    <div class="skill-tags">
+                        <span>React</span>
+                        <span>Supabase</span>
+                        <span>Bolt</span>
+                        <span>Netlify</span>
+                        <span>PHP</span>
+                        <span>MySQL</span>
+                    </div>
+                </div>
+                <div class="skill-category-card">
+                    <i class="fas fa-robot skill-icon"></i>
+                    <h3>AI & Automation</h3>
+                    <div class="skill-tags">
+                        <span>Prompt Engineering</span>
+                        <span>Workflow Automation</span>
+                        <span>Speech-to-Text</span>
+                        <span>Forgery Detection</span>
+                        <span>Power BI</span>
+                        <span>Tableau</span>
+                        <span>MS Office Automation</span>
+                    </div>
+                </div>
+                <div class="skill-category-card">
+                    <i class="fas fa-microchip skill-icon"></i>
+                    <h3>IoT & Tools</h3>
+                    <div class="skill-tags">
+                        <span>Arduino</span>
+                        <span>Raspberry Pi</span>
+                        <span>Ultrasonic Sensors</span>
+                        <span>Radar Systems</span>
+                        <span>Git</span>
+                        <span>AutoCAD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="linkedin" class="linkedin-section">
+        <div class="container">
+            <h2 class="section-title">LinkedIn Showcase</h2>
+            <span class="section-subtitle">Professional Insights & Achievements</span>
+
+            <div class="linkedin-content">
+                <div class="linkedin-badge-wrapper">
+                    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+                    <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="dark" data-type="VERTICAL" data-vanity="coderesol" data-version="v1">
+                        <a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/coderesol?trk=profile-badge">Abhilash Chary Vadla</a>
+                    </div>
+                </div>
+
+                <div class="linkedin-quote-card">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <blockquote>
+                        "Intelligence, not just skills, is the human edge in an AI-driven world."
+                    </blockquote>
+                    <p class="quote-author">— Abhilash Chary Vadla</p>
+                </div>
+
+                <div class="linkedin-highlights">
+                    <div class="linkedin-stat-card">
+                        <i class="fas fa-trophy"></i>
+                        <h3>Capgemini</h3>
+                        <p>Student Ambassador</p>
+                    </div>
+                    <div class="linkedin-stat-card">
+                        <i class="fas fa-rocket"></i>
+                        <h3>Code Resol</h3>
+                        <p>Founder & Leader</p>
+                    </div>
+                </div>
+
+                <div class="linkedin-posts-section">
+                    <h3 class="posts-title">Featured Activity</h3>
+                    <p class="posts-subtitle">My recent contributions to the tech community</p>
+                    
+                    <div class="linkedin-posts-grid">
+                        <a href="https://www.linkedin.com/posts/coderesol_smartindiahackathon-sih2025-technovanza-activity-7384636972071329792-sLNa" target="_blank" class="linkedin-post-card">
+                            <div class="post-thumbnail">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <h4>Smart India Hackathon & Technovanza</h4>
+                            <p>Innovation in national hackathon challenges</p>
+                            <span class="view-post-btn">View on LinkedIn →</span>
+                        </a>
+                        
+                        <a href="https://www.linkedin.com/posts/coderesol_ai-lovable-dsa-activity-7383765677976928256-klGr" target="_blank" class="linkedin-post-card">
+                            <div class="post-thumbnail">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <h4>AI & DSA Development</h4>
+                            <p>Lovable AI integration with data structures</p>
+                            <span class="view-post-btn">View on LinkedIn →</span>
+                        </a>
+                        
+                        <a href="https://www.linkedin.com/posts/coderesol_n8n-workflowautomation-aiagent-activity-7383139707519627264-1YKO" target="_blank" class="linkedin-post-card">
+                            <div class="post-thumbnail">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <h4>n8n Workflow Automation</h4>
+                            <p>Building intelligent AI agents for automation</p>
+                            <span class="view-post-btn">View on LinkedIn →</span>
+                        </a>
+                        
+                        <a href="https://www.linkedin.com/posts/coderesol_avinya2k25-hackathon-ai-activity-7375133972969938944-J6LH" target="_blank" class="linkedin-post-card">
+                            <div class="post-thumbnail">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <h4>Avinya 2K25 Hackathon</h4>
+                            <p>AI-powered solutions at inter-college competition</p>
+                            <span class="view-post-btn">View on LinkedIn →</span>
+                        </a>
+                    </div>
+
+                    <div class="manual-posts-note">
+                        <i class="fas fa-info-circle"></i>
+                        <div>
+                            <p><strong>Data Transparency Note (October 2025)</strong></p>
+                            <ul style="margin: 10px 0 0 20px; color: #a0a0b0; line-height: 1.8;">
+                                <li><strong>Live Data (Auto-Updated):</strong>
+                                    <ul style="margin-top: 5px; margin-left: 20px;">
+                                        <li>GitHub: Repositories, stars, forks, languages (fetched via GitHub API in real-time)</li>
+                                        <li>Codeforces: Current and highest ratings, contests participated (via Codeforces API)</li>
+                                    </ul>
+                                </li>
+                                <li style="margin-top: 10px;"><strong>Static Data (Manually Updated):</strong>
+                                    <ul style="margin-top: 5px; margin-left: 20px;">
+                                        <li>LeetCode: Rating 1718, 128 problems solved, 13 contests (no public API available)</li>
+                                        <li>CodeChef: Rating 1476, 50 problems solved, 25 contests (no public API for all data)</li>
+                                        <li>Smart Interviews: Rank 2041, Score 42,965, Gold Certification</li>
+                                        <li>LinkedIn: All post links lead to authentic published content; profile badge shows live info</li>
+                                    </ul>
+                                </li>
+                                <li style="margin-top: 10px;"><strong>Data Accuracy:</strong> All static competitive programming stats are accurate as of October 2025 and represent genuine achievements. Manual updates ensure precision.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://www.linkedin.com/in/coderesol/" target="_blank" class="linkedin-cta-btn">
+                    <i class="fab fa-linkedin"></i>
+                    Connect with me on LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <span class="section-subtitle">Let's build something together</span>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>Feel free to reach out via email, phone, or my social platforms. I'm always open to discussing new projects, creative ideas, or opportunities to collaborate.</p>
+                    <ul class="contact-list">
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:vadlaabhilashchary3333@gmail.com">vadlaabhilashchary3333@gmail.com</a></li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+919392897566">+91 9392897566</a></li>
+                        <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/coderesol/" target="_blank">linkedin.com/in/coderesol</a></li>
+                        <li><i class="fab fa-github"></i> <a href="https://github.com/Abhilashchary" target="_blank">github.com/Abhilashchary</a></li>
+                        <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/abhi___chary/" target="_blank">@abhi___chary</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Hyderabad, India</li>
+                    </ul>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" value="Collaboration Opportunity from Portfolio" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required>Hi Abhilash,
+
+I came across your portfolio and I'm impressed with your work. I'd like to discuss a potential collaboration opportunity.
+
+Looking forward to hearing from you!</textarea>
+                        </div>
+                        <button type="submit" class="form-submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Abhilash Chary Vadla | Designed & Built with passion</p>
+            <div class="footer-socials">
+                <a href="https://github.com/Abhilashchary" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/coderesol/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://leetcode.com/u/coderesol/" target="_blank" aria-label="LeetCode"><i class="fas fa-code"></i></a>
+                <a href="https://www.codechef.com/users/abhilashchary" target="_blank" aria-label="CodeChef"><i class="fas fa-utensils"></i></a>
+                <a href="https://codeforces.com/profile/vadlaabhilashchary3333" target="_blank" aria-label="Codeforces"><i class="fas fa-terminal"></i></a>
+                <a href="https://www.instagram.com/abhi___chary/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Contact Form Handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            const mailtoLink = `mailto:vadlaabhilashchary3333@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+            
+            window.location.href = mailtoLink;
+        });
+
+        // Typing Effect
+        const typingElement = document.getElementById('typing-text');
+        const professions = [
+            "Aspiring Software Engineer",
+            "Full-Stack Developer",
+            "Competitive Programmer",
+            "AI & Tech Innovator"
+        ];
+        let professionIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+
+        function typeEffect() {
+            const currentProfession = professions[professionIndex];
+            if (isDeleting) {
+                typingElement.textContent = currentProfession.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentProfession.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentProfession.length) {
+                typingSpeed = 1500;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                professionIndex = (professionIndex + 1) % professions.length;
+                typingSpeed = 500;
+            } else {
+                typingSpeed = isDeleting ? 70 : 100;
+            }
+            setTimeout(typeEffect, typingSpeed);
+        }
+        typeEffect();
+
+        // Fetch GitHub Projects
+        async function fetchGitHubProjects() {
+            const username = 'Abhilashchary';
+            const projectsContainer = document.getElementById('github-projects');
+            
+            try {
+                const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`);
+                const repos = await response.json();
+                
+                projectsContainer.innerHTML = repos.map(repo => `
+                    <div class="project-card">
+                        <div class="project-header">
+                            <i class="fas fa-folder-open project-icon"></i>
+                            <h3>${repo.name}</h3>
+                        </div>
+                        <p class="project-description">${repo.description || 'No description available'}</p>
+                        <div class="project-tech">
+                            ${repo.language ? `<span class="tech-tag">${repo.language}</span>` : ''}
+                            <span class="tech-tag"><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
+                            <span class="tech-tag"><i class="fas fa-code-branch"></i> ${repo.forks_count}</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="${repo.html_url}" target="_blank" class="project-link">
+                                View Code <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" class="project-link">Live Demo <i class="fas fa-globe"></i></a>` : ''}
+                        </div>
+                    </div>
+                `).join('');
+            } catch (error) {
+                projectsContainer.innerHTML = '<p class="loading-spinner">Failed to load projects. Please try again later.</p>';
+                console.error('Error fetching GitHub projects:', error);
+            }
+        }
+
+        // Initialize Charts
+        function initializeCharts() {
+            // Problems Solved Distribution Chart
+            const problemsCtx = document.getElementById('problemsChart').getContext('2d');
+            new Chart(problemsCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['LeetCode (128)', 'CodeChef (50)', 'Codeforces (~30)'],
+                    datasets: [{
+                        data: [128, 50, 30],
+                        backgroundColor: [
+                            'rgba(0, 224, 176, 0.8)',
+                            'rgba(255, 159, 64, 0.8)',
+                            'rgba(75, 192, 192, 0.8)'
+                        ],
+                        borderColor: '#12121c',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#f0f0f5',
+                                font: { size: 12 }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = ((context.parsed / total) * 100).toFixed(1);
+                                    label += context.parsed + ' problems (' + percentage + '%)';
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Platform Comparison Chart
+            const platformCtx = document.getElementById('platformChart').getContext('2d');
+            new Chart(platformCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['LeetCode', 'CodeChef', 'Codeforces'],
+                    datasets: [{
+                        label: 'Rating/Score',
+                        data: [1718, 1476, 926],
+                        backgroundColor: [
+                            'rgba(0, 224, 176, 0.6)',
+                            'rgba(255, 159, 64, 0.6)',
+                            'rgba(75, 192, 192, 0.6)'
+                        ],
+                        borderColor: [
+                            'rgba(0, 224, 176, 1)',
+                            'rgba(255, 159, 64, 1)',
+                            'rgba(75, 192, 192, 1)'
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: '#f0f0f5' },
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                        },
+                        x: {
+                            ticks: { color: '#f0f0f5' },
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#f0f0f5',
+                                font: { size: 12 }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Contest Performance Timeline
+            const contestCtx = document.getElementById('contestChart').getContext('2d');
+            new Chart(contestCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Contest 1', 'Contest 3', 'Contest 5', 'Contest 7', 'Contest 9', 'Contest 11', 'Contest 13'],
+                    datasets: [
+                        {
+                            label: 'LeetCode Rating',
+                            data: [1550, 1600, 1650, 1680, 1700, 1710, 1718],
+                            borderColor: 'rgba(0, 224, 176, 1)',
+                            backgroundColor: 'rgba(0, 224, 176, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: 'Codeforces Rating',
+                            data: [800, 850, 880, 900, 920, 950, 926],
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            backgroundColor: 'rgba(75, 192, 192, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            ticks: { color: '#f0f0f5' },
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                        },
+                        x: {
+                            ticks: { color: '#f0f0f5' },
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#f0f0f5',
+                                font: { size: 12 }
+                            }
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            fetchGitHubProjects();
+            initializeCharts();
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Mobile Menu Toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>
